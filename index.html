@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphic UI</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 20px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .section {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 0;
+        }
+        .image-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 20px;
+            width: 100%;
+            justify-content: center;
+        }
+        .image-scroll img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            scroll-snap-align: center;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s, transform 1s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="glass fade-in">Amazing Glassmorphic UI</div>
+        <div class="glass fade-in">
+            <p>Welcome to a beautifully animated glass UI experience.</p>
+        </div>
+    </div>
+    <div class="section image-scroll fade-in">
+        <img src="https://via.placeholder.com/300x200" alt="Placeholder">
+        <img src="https://via.placeholder.com/300x200" alt="Placeholder">
+        <img src="https://via.placeholder.com/300x200" alt="Placeholder">
+    </div>
+    <script>
+        const elements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
