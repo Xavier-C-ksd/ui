@@ -4,133 +4,101 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    * {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #111;
+    }
+    .sidebar, .topbar {
+      position: fixed;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+    .sidebar { width: 10vw; height: 100vh; }
+    .topbar { width: 90vw; left: 10vw; height: 10vh; top: 0; }
+    .cardholder {
+      position: fixed;
+      z-index: -1;
+      left: 10vw;
+      top: 10vh;
+      width: 90vw;
+      height: 90vh;
+      padding: 10px;
+      overflow-y: auto;
+      scrollbar-gutter: stable;
+    }
+    .card, .halfcard {
+      padding: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(30px);
+      border-radius: 30px;
+      border: 1px solid #ffffff22;
+      color: #ccc;
+    }
+    .card {
+      width: calc(90vw - 120px);
+      margin-bottom: 10px;
+    }
+    .halfcard {
+      flex: none;
+      margin-bottom: 10px;
+    }
+    .pair {
+      display: flex;
+      width: calc(90vw - 120px);
+    }
+    .imageHolder {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      border-radius: 30px;
+      height: 50vh;
+      width: calc(90vw - 20px);
+      margin-bottom: 10px;
+    }
+    .sliderImage {
+      height: 50vh;
+      object-fit: cover;
+      border-radius: 30px;
+      margin-right: 10px;
+      scroll-snap-align: center;
+    }
+    .imageHolder .sliderImage:last-child {
+      margin-right: -5px;
+    }
+    .firstcard {
+      margin-top: 10vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: #fff;
+    }
+  </style>
 </head>
-<style>
-  *{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  body{
-    padding:0;
-    margin:0;
-    background-color: #111111;
-  }
-  .sidebar{
-    width:10vw;
-    height:100vh;
-    position:fixed;
-    background-color:rgba(255,255,255,0.1);
-    backdrop-filter:blur(10px);
-  }
-  .topbar{
-    position:fixed;
-    width:90vw;
-    left:10vw;
-    height:10vh;
-    top:0px;
-    background-color:rgba(255,255,255,0.1);
-    backdrop-filter:blur(10px);
-  }
-  .cardholder{
-    z-index: -1;
-    margin-left:calc(10vw);
-    padding-top:10vh;
-    height:100vh;
-    position: fixed;
-    padding:10px;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    scrollbar-gutter: stable;
-  }
-  .card{
-    padding:50px;
-    background-color:rgba(255,255,255,0.1);
-    backdrop-filter:blur(30px);
-    border-radius:30px;
-    width:calc(90vw - 120px);
-    border:1px solid #ffffff22;
-    margin-bottom:10px;
-    color: #ccc;
-  }
-  .halfcard{
-    flex:1;
-    padding:50px;
-    background-color:rgba(255,255,255,0.1);
-    backdrop-filter:blur(30px);
-    border-radius:30px;
-    border:1px solid #ffffff22;
-    margin-bottom:10px;
-    color: #ccc;
-    margin-right: 10px;
-  }
-  .ccard{
-    padding:50px;
-    width:calc(90vw - 125px);
-    margin-bottom:10px;
-    color:#fff;
-    align-items: center;
-    justify-content:center;
-    display:flex;
-  }
-  .firstcard{
-    margin-top:10vh;
-  }
-  .imageHolder{
-    width:calc(90vw - 20px);
-    margin-bottom:10px;
-    scroll-snap-type:x mandatory;
-    overflow-x:auto;
-    height:50vh;
-    display:flex;
-    scroll-behavior:smooth;
-    border-radius:30px;
-  }
-  .sliderImage{
-    display:block;
-    height:50vh;
-    scroll-snap-align:center;
-    object-fit:cover;
-    border-radius:30px;
-    margin-right: 10px;
-  }
-  .imageHolder .sliderImage:last-child{
-    margin-right:-5px;
-  }
-  .pair {
-    display: flex;
-  }
-  .pair .halfcard:last-child{
-    margin-right:0px;
-  }
-  .title{
-    font-size:3rem;
-    font-weight: bolder;
-  }
-  .centre{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
 <body>
   <div class="sidebar"></div>
   <div class="topbar"></div>
   <div class="cardholder">
-    <div class="firstcard ccard">
-      <p class="title">Welcome!</p>
-    </div>
+    <div class="firstcard card">Welcome!</div>
     <div class="imageHolder">
-      <img src="https://picsum.photos/800/200" alt="Placeholder" class="sliderImage">
-      <img src="https://picsum.photos/800/500" alt="Placeholder" class="sliderImage">
-      <img src="https://picsum.photos/800/600" alt="Placeholder" class="sliderImage">
-      <img src="https://picsum.photos/800/300" alt="Placeholder" class="sliderImage">
+      <img src="https://picsum.photos/800/200" class="sliderImage">
+      <img src="https://picsum.photos/800/500" class="sliderImage">
+      <img src="https://picsum.photos/800/600" class="sliderImage">
+      <img src="https://picsum.photos/800/300" class="sliderImage">
     </div>
     <div class="pair" data-value="30">
-      <div class="halfcard centre"><h1>Downloads</h1><br><h1>1,417,552</h1></div>
+      <div class="halfcard">Downloads<br>1,417,552</div>
       <div class="halfcard"></div>
     </div>
     <div class="pair" data-value="60">
-      <div class="halfcard centre"><h1>Example</h1></div>
+      <div class="halfcard">Example</div>
       <div class="halfcard"></div>
     </div>
     <div class="card"></div>
@@ -139,16 +107,12 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll(".pair").forEach(pair => {
-        const dataValue = parseInt(pair.getAttribute("data-value"), 10);
-        if (!isNaN(dataValue) && dataValue >= 10 && dataValue <= 90) {
-          const firstCard = pair.children[0];
-          const secondCard = pair.children[1];
-          firstCard.style.height = `calc(${dataValue * 0.9}vh - 130px)`;
-          secondCard.style.height = `calc(${(100 - dataValue) * 0.9}vh - 130px)`;
-        }
-      });
+    document.querySelectorAll(".pair").forEach(pair => {
+      let val = parseInt(pair.dataset.value);
+      if (val >= 10 && val <= 90) {
+        pair.children[0].style.width = `calc(${val * 0.9}vw - 130px)`;
+        pair.children[1].style.width = `calc(${(100 - val) * 0.9}vw - 130px)`;
+      }
     });
   </script>
 </body>
