@@ -51,7 +51,7 @@
     }
     .pair {
       display: flex;
-      width: calc(90vw - 120px);
+      width: 100%;
     }
     .pair:last-child {
       margin-right: 0px;
@@ -122,8 +122,8 @@
     document.querySelectorAll(".pair").forEach(pair => {
       let val = parseInt(pair.dataset.value);
       if (val >= 10 && val <= 90) {
-        pair.children[0].style.width = `calc(${val * 0.9}vw - 115px)`;
-        pair.children[1].style.width = `calc(${(100 - val) * 0.9}vw - 115px)`;
+        pair.children[0].style.width = `calc(${val * 0.9}vw - 117px)`;
+        pair.children[1].style.width = `calc(${(100 - val) * 0.9}vw - 117px)`;
       }
     });
   </script>
