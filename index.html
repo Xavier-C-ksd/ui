@@ -31,8 +31,10 @@
       overflow-y: auto;
       scrollbar-gutter: stable;
     }
-    .card, .halfcard {
+    .card, .halfcard, .ccard {
       padding: 50px;
+    }
+    .card, .halfcard {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(30px);
       border-radius: 30px;
@@ -46,10 +48,21 @@
     .halfcard {
       flex: none;
       margin-bottom: 10px;
+      margin-right: 10px;
     }
     .pair {
       display: flex;
       width: calc(90vw - 120px);
+    }
+    .pair:last-child {
+      margin-right: 0px;
+    }
+    .centre {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      vertical-align: center;
     }
     .imageHolder {
       display: flex;
@@ -72,7 +85,6 @@
       margin-right: -5px;
     }
     .firstcard {
-      margin-top: 10vh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -86,7 +98,7 @@
   <div class="sidebar"></div>
   <div class="topbar"></div>
   <div class="cardholder">
-    <div class="firstcard card">Welcome!</div>
+    <div class="firstcard centre ccard">Welcome!</div>
     <div class="imageHolder">
       <img src="https://picsum.photos/800/200" class="sliderImage">
       <img src="https://picsum.photos/800/500" class="sliderImage">
@@ -110,8 +122,8 @@
     document.querySelectorAll(".pair").forEach(pair => {
       let val = parseInt(pair.dataset.value);
       if (val >= 10 && val <= 90) {
-        pair.children[0].style.width = `calc(${val * 0.9}vw - 130px)`;
-        pair.children[1].style.width = `calc(${(100 - val) * 0.9}vw - 130px)`;
+        pair.children[0].style.width = `calc(${val * 0.9}vw - 115px)`;
+        pair.children[1].style.width = `calc(${(100 - val) * 0.9}vw - 115px)`;
       }
     });
   </script>
