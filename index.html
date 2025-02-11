@@ -18,13 +18,11 @@
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
     }
-    .sidebar { width: 10vw; height: 100vh; }
     .topbar { width: 90vw; left: 10vw; height: 10vh; top: 0; }
     .cardholder {
       position: fixed;
       z-index: -1;
-      left: 10vw;
-      width: 90vw;
+      width: 100vw;
       height: 100vh;
       padding: 10px;
       overflow-y: auto;
@@ -41,7 +39,7 @@
       color: #ccc;
     }
     .card {
-      width: calc(90vw - 120px);
+      width: calc(100vw - 20px);
       margin-bottom: 10px;
     }
     .halfcard {
@@ -70,7 +68,7 @@
       scroll-behavior: smooth;
       border-radius: 30px;
       height: 50vh;
-      width: calc(90vw - 20px);
+      width: calc(100vw - 20px);
       margin-bottom: 10px;
     }
     .sliderImage {
@@ -122,8 +120,8 @@
     document.querySelectorAll(".pair").forEach(pair => {
       let val = parseInt(pair.dataset.value);
       if (val >= 10 && val <= 90) {
-        pair.children[0].style.width = `calc(${val * 0.9}vw - 117px)`;
-        pair.children[1].style.width = `calc(${(100 - val) * 0.9}vw - 117px)`;
+        pair.children[0].style.width = `calc(${val}vw - 117px)`;
+        pair.children[1].style.width = `calc(${(100 - val)}vw - 117px)`;
       }
     });
   </script>
